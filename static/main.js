@@ -41,7 +41,19 @@ function handle(delta) {//handle after wheelEnent
        //ÏÂ»¬
     }
     else {
-        window.location.hash="home";//ÉÏ»¬
+        switch(window.location.hash){
+            case "#works":
+                window.location.hash="about";
+                break;
+            case "#about":
+                window.location.hash="home";
+                break;
+            case "#contact":
+                window.location.hash="works";
+                break;
+            default :
+                break;
+            }
     }
 }
 var bIfScroll =0;
@@ -54,7 +66,7 @@ function wheel(event){//whellEvent
     } else if (event.detail) {
         delta = -event.detail/3;
     }
-    if (delta && a%2==0)
+    if (delta && bIfScroll%2==0)
         handle(delta);
     bIfScroll++;
 }
